@@ -59,9 +59,8 @@ View(pearson_cor)
 corrplot.mixed(pearson_cor)
 
 #Grafico correlacion lineal
-ggpairs(dplyr::select(wdbc, -id, -diagnosis), title="correlogram lineal")
-ggpairs(dplyr::select(wdbc, -id), title="correlogram lineal", ggplot2::aes(colour=diagnosis))
-pairs(wdbc[2:10], lower.panel = NULL)
+ggpairs(dplyr::select(wdbc, -id, -diagnosis), title="correlogram lineal", lower = list(continuous = wrap("smooth", alpha = 0.3, size=0.1)))
+ggpairs(dplyr::select(wdbc, -id), title="correlogram lineal", ggplot2::aes(colour=diagnosis),lower = list(continuous = wrap("smooth", alpha = 0.3, size=0.1)))
 
 #Graficos distribucion de las variables
 newNames = c(
